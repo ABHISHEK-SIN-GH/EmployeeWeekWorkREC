@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Employee Record</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="py-4 text-center">Employee Weekly Work Report</h2>
+        <div class="row">
+            <div class="col-4">
+                <span class="fw-bold fs-5" style="vertical-align: middle;">Date Range: </span>
+                <input id="dateRangePicker" class="mb-4 form-control px-2" type="text" name="daterange" value="01/01/2023 - 01/7/2023" style="display: inline;width: auto;"/>
+            </div>
+            <div class="col-2 text-end">
+                <span class="fw-bold fs-5" style="vertical-align: middle;">Projects: </span>
+                <input id="projects" class="form-control" type="number" value="0" disabled style="display: inline;">
+            </div>
+            <div class="col-2 text-end">
+                <span class="fw-bold fs-5" style="vertical-align: middle;">Leaves: </span>
+                <input id="leaves" class="form-control" type="number" value="0" disabled style="display: inline;">
+            </div>
+            <div class="col-2 text-end">
+                <span class="fw-bold fs-5" style="vertical-align: middle;">Overall: </span>
+                <input id="overall" class="form-control" type="number" value="0" disabled style="display: inline;">
+            </div>
+            <div class="col-2 text-end">
+                <span class="btn btn-primary fw-bold">Save Record</span>
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead id="myTab">
+                <tr class="bg-dark text-white">
+                    <th scope="col my-auto" style="background-color: orange;">DATE</th>
+                    <th scope="col" id="MON_DATE">10</th>
+                    <th scope="col" id="TUE_DATE">11</th>
+                    <th scope="col" id="WED_DATE">12</th>
+                    <th scope="col" id="THU_DATE">13</th>
+                    <th scope="col" id="FRI_DATE">14</th>
+                    <th scope="col" id="SAT_DATE">15</th>
+                    <th scope="col" id="SUN_DATE">16</th>
+                </tr>
+                <tr class="bg-info">
+                    <th scope="col my-auto" style="background-color: orange; color: white;">DAY</th>
+                    <th scope="col" id="MON_DAY">MON</th>
+                    <th scope="col" id="TUE_DAY">TUE</th>
+                    <th scope="col" id="WED_DAY">WED</th>
+                    <th scope="col" id="THU_DAY">THU</th>
+                    <th scope="col" id="FRI_DAY">FRI</th>
+                    <th scope="col" id="SAT_DAY">SAT</th>
+                    <th scope="col" id="SUN_DAY">SUN</th>
+                </tr>
+                <tr class="bg-info">
+                    <th scope="col my-auto" style="background-color: orange; color: white; padding: 0;">LEAVE</th>
+                    <th scope="col"><input class="form-check-input CBOX" type="checkbox" value="" id="MON_CBOX"></th>
+                    <th scope="col"><input class="form-check-input CBOX" type="checkbox" value="" id="TUE_CBOX"></th>
+                    <th scope="col"><input class="form-check-input CBOX" type="checkbox" value="" id="WED_CBOX"></th>
+                    <th scope="col"><input class="form-check-input CBOX" type="checkbox" value="" id="THU_CBOX"></th>
+                    <th scope="col"><input class="form-check-input CBOX" type="checkbox" value="" id="FRI_CBOX"></th>
+                    <th scope="col"><input class="form-check-input CBOX" type="checkbox" value="" id="SAT_CBOX"></th>
+                    <th scope="col"><input class="form-check-input CBOX" type="checkbox" value="" id="SUN_CBOX"></th>
+                </tr>
+            </thead>
+            <tbody id="myTab">
+                <tr class="bg-info proRec">
+                    <th scope="row my-auto" style="background-color: orange; color: white;">Pro-1</th>
+                    <td><input type="number" class="form-control MON_REC" value="0"></td>
+                    <td><input type="number" class="form-control TUE_REC" value="0"></td>
+                    <td><input type="number" class="form-control WED_REC" value="0"></td>
+                    <td><input type="number" class="form-control THU_REC" value="0"></td>
+                    <td><input type="number" class="form-control FRI_REC" value="0"></td>
+                    <td><input type="number" class="form-control SAT_REC" value="0"></td>
+                    <td><input type="number" class="form-control SUN_REC" value="0"></td>
+                </tr>
+                <tr class="bg-info proRec">
+                    <th scope="row my-auto" style="background-color: orange; color: white;">Pro-2</th>
+                    <td><input type="number" class="form-control MON_REC" value="0"></td>
+                    <td><input type="number" class="form-control TUE_REC" value="0"></td>
+                    <td><input type="number" class="form-control WED_REC" value="0"></td>
+                    <td><input type="number" class="form-control THU_REC" value="0"></td>
+                    <td><input type="number" class="form-control FRI_REC" value="0"></td>
+                    <td><input type="number" class="form-control SAT_REC" value="0"></td>
+                    <td><input type="number" class="form-control SUN_REC" value="0"></td>
+                </tr>
+                <tr class="bg-info proRec">
+                    <th scope="row my-auto" style="background-color: orange; color: white;">Pro-3</th>
+                    <td><input type="number" class="form-control MON_REC" value="0"></td>
+                    <td><input type="number" class="form-control TUE_REC" value="0"></td>
+                    <td><input type="number" class="form-control WED_REC" value="0"></td>
+                    <td><input type="number" class="form-control THU_REC" value="0"></td>
+                    <td><input type="number" class="form-control FRI_REC" value="0"></td>
+                    <td><input type="number" class="form-control SAT_REC" value="0"></td>
+                    <td><input type="number" class="form-control SUN_REC" value="0"></td>
+                </tr>
+                <tr class="bg-success disabled">
+                    <th scope="row my-auto" style="background-color: orange; color: white;">Total</th>
+                    <td><input type="number" class="form-control MON_REC_SUM" value="0" disabled
+                            style="cursor: not-allowed;"></td>
+                    <td><input type="number" class="form-control TUE_REC_SUM" value="0" disabled
+                            style="cursor: not-allowed;"></td>
+                    <td><input type="number" class="form-control WED_REC_SUM" value="0" disabled
+                            style="cursor: not-allowed;"></td>
+                    <td><input type="number" class="form-control THU_REC_SUM" value="0" disabled
+                            style="cursor: not-allowed;"></td>
+                    <td><input type="number" class="form-control FRI_REC_SUM" value="0" disabled
+                            style="cursor: not-allowed;"></td>
+                    <td><input type="number" class="form-control SAT_REC_SUM" value="0" disabled
+                            style="cursor: not-allowed;"></td>
+                    <td><input type="number" class="form-control SUN_REC_SUM" value="0" disabled
+                            style="cursor: not-allowed;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="index.js"></script>
+    <script>
+        let dates = [];
+        let dateRangePick = document.querySelector('#dateRangePicker');
+        let date = new Date();
+        let startDate, endDate;
+        
+        let stDate = date.toLocaleDateString();
+        date.setDate(date.getDate()-6);
+        let enDate = date.toLocaleDateString();
+        let currDateRange = enDate+' - '+stDate; 
+        dateRangePick.value = currDateRange;
+
+        startDate = new Date(enDate);
+        endDate = new Date(stDate);
+
+        while (startDate <= endDate) {
+            dates.push(new Date(startDate));
+            startDate.setDate(startDate.getDate() + 1);
+        } 
+        
+        let currentRange = dateRangePick.value;
+        
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({ opens: 'right' },
+                function (start, end) {
+                    dates = [];
+                    startDate = new Date(start.format('YYYY-MM-DD'));
+                    endDate = new Date(end.format('YYYY-MM-DD'));
+                    let datePtr = new Date();
+                    datePtr.setDate(startDate);
+                    const diffTime = Math.abs( startDate - endDate);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    if(diffDays!=6){
+                        alert('Please Select 7 Days Range...');
+                    }else{
+                        alert('Work Report Reterived!!');
+                        while (startDate <= endDate) {
+                            dates.push(new Date(startDate));
+                            startDate.setDate(startDate.getDate() + 1);
+                        } 
+                        dates.forEach((date)=>{
+                            let days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+                            let day = new Date(date);
+                            day = day.getDay();
+                            day = days[day];
+                            if(day==='MON'){
+                                mon_date.innerHTML=date.getDate();
+                            }else if(day==='TUE'){
+                                tue_date.innerHTML=date.getDate();
+                            }else if(day==='WED'){
+                                wed_date.innerHTML=date.getDate();
+                            }else if(day==='THU'){
+                                thu_date.innerHTML=date.getDate();
+                            }else if(day==='FRI'){
+                                fri_date.innerHTML=date.getDate();
+                            }else if(day==='SAT'){
+                                sat_date.innerHTML=date.getDate();
+                            }else if(day==='SUN'){
+                                sun_date.innerHTML=date.getDate();
+                            }
+                        });
+                    }
+                });
+        });
+
+        let mon_date = document.getElementById('MON_DATE');
+        let tue_date = document.getElementById('TUE_DATE');
+        let wed_date = document.getElementById('WED_DATE');
+        let thu_date = document.getElementById('THU_DATE');
+        let fri_date = document.getElementById('FRI_DATE');
+        let sat_date = document.getElementById('SAT_DATE');
+        let sun_date = document.getElementById('SUN_DATE');
+
+        dates.forEach((date)=>{
+            let days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            let day = new Date(date);
+            day = day.getDay();
+            day = days[day];
+            if(day==='MON'){
+                mon_date.innerHTML=date.getDate();
+            }else if(day==='TUE'){
+                tue_date.innerHTML=date.getDate();
+            }else if(day==='WED'){
+                wed_date.innerHTML=date.getDate();
+            }else if(day==='THU'){
+                thu_date.innerHTML=date.getDate();
+            }else if(day==='FRI'){
+                fri_date.innerHTML=date.getDate();
+            }else if(day==='SAT'){
+                sat_date.innerHTML=date.getDate();
+            }else if(day==='SUN'){
+                sun_date.innerHTML=date.getDate();
+            }
+        });
+    </script>
+</body>
+
+</html>

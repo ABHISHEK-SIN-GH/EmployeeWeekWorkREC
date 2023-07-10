@@ -1,0 +1,38 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=checkbox]{
+    width: 45px;
+    height: 35px;
+    padding: 3px;
+    text-align: center;
+}
+
+#myTab {
+    text-align: center;
+    padding: 15px!important;
+    vertical-align: middle;
+}
+
+.form-control{
+    width: 45px;
+    height: 35px;
+    padding: 5px;
+    text-align: center;
+    margin: auto;
+}
+
+.disabled{
+    pointer-events: none;
+    opacity: 80%;
+    cursor: not-allowed;
+}
